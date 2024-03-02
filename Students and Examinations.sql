@@ -1,0 +1,1 @@
+select t.student_id, t.student_name, t.subject_name, count(e.student_id ) as attended_exams  from (select * from students left join subjects on true) t left join Examinations e on t.student_id = e.student_id && t.subject_name = e.subject_name where t.subject_name is not null group by t.subject_name, t.student_id order by t.student_id, t.subject_name
